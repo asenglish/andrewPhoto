@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './router/router.module';
 
 import { HttpService } from './http.service';
+import { Http, Headers, RequestOptions } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { PhotoListComponent } from './photo-list/photo-list.component';
@@ -17,7 +18,7 @@ import { PhotoListComponent } from './photo-list/photo-list.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpModule
   ],
   providers: [
     HttpService

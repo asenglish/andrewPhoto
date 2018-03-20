@@ -33,7 +33,7 @@ export class PhotoListComponent implements OnInit {
   }
 
   private insantiatePhotos(jsonPhotos: any): void {
-    this.photos = jsonPhotos.map(function(jsonPhoto) {
+    this.photos = jsonPhotos.json().map(function(jsonPhoto) {
       const {id, url, created_at, likes, collection_name, name} = jsonPhoto;
       return new Photo(id, url, created_at, likes, collection_name, name);
     });
