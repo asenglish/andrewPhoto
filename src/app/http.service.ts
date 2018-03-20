@@ -13,6 +13,7 @@ export class HttpService {
 
   public get(path: string): Observable<any> {
     path = this.baseUrl + path;
+    console.log('getting at path: ' + path);
     return this.http.get(path, new RequestOptions({headers: this.baseHeaders}));
   }
 
