@@ -16,26 +16,39 @@ export class PhotoListComponent implements OnInit {
 
   ngOnInit() {
     this.photos = []
+    this.httpService.get('/photos/all')
+      .subscribe(result => {
+        this.instantiatePhotos(result.json());
+    });
+
+    // Easy quick solution for "reactive" likes... I should do gRPC...
     TimerObservable.create(0, 1000)
       .subscribe(() => {
-        this.httpService.get('/photos/all')
-          .subscribe(result => {
-            this.insantiatePhotos(result);
-          })
-      })
+          this.httpService.get('/photos/likes')
+            .subscribe(result => {
+              this.updateLikes(new Map(JSON.parse(result.json())));
+            });
+      });
   }
 
   public likePhoto(id: string): void {
     this.httpService.put('/photos/like/' + id)
       .then(result => {
-
-    })
+        //on success event?
+    });
   }
 
-  private insantiatePhotos(jsonPhotos: any): void {
-    this.photos = jsonPhotos.json().map(function(jsonPhoto) {
+  private instantiatePhotos(jsonPhotos: any): void {
+    this.photos = jsonPhotos.map(function(jsonPhoto) {
       const {id, url, created_at, likes, collection_name, name} = jsonPhoto;
       return new Photo(id, url, created_at, likes, collection_name, name);
+    });
+  }
+
+// TS does not support maps?
+  private updateLikes(likes: any) {
+    this.photos.forEach(photo => {
+      photo.likes = likes.get(photo.id);
     });
   }
 }

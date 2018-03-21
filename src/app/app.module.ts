@@ -8,12 +8,16 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { PhotoListComponent } from './photo-list/photo-list.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { AboutComponent } from './about/about.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PhotoListComponent
+    PhotoListComponent,
+    NavBarComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
