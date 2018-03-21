@@ -1,6 +1,14 @@
 <div class='nav'>
   <ul class='nav-links'>
-    <li class='nav-link' (click)="goTo('photo-list')">Photos</li>
-    <li class='nav-link' (click)="goTo('about')">About</li>
+    <li class='nav-link' routerLink="/photo-list" routerLinkActive="active-route">
+      <a class='nav-link-text'>
+        PHOTOS
+      </a>
+    </li>
+    <li class='nav-link' routerLink="/about" routerLinkActive="active-route">
+      <a class='nav-link-text'>
+        ABOUT
+      </a>
+    </li>
   </ul>
 </div>

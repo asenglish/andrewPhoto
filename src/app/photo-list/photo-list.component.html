@@ -1,8 +1,9 @@
-<div *ngFor='let photo of photos'>
-  <p>Title: {{photo.name}}</p>
-  <p>Collection: {{photo.collection_name}}</p>
-  <p>Created: {{photo.created_at}}</p>
-  <img src="{{photo.url}}"/>
-  <br>
-  <button (click)='likePhoto(photo.id)'>Like ({{photo.likes}})</button>
+<div class='wrapper'>
+  <div *ngFor='let photo of photos' class='photo-wrapper'>
+    <p>{{photo.name}}</p>
+    <img class='photo' src="{{photo.url}}"/>
+    <br>
+    <div (click)='likePhoto(photo.id)' class='button like left inline'>Like ({{photo.likes}})</div>
+    <span class='created-at right'>Created: {{photo.created_at}}</span>
+  </div>
 </div>

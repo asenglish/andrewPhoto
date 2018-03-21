@@ -1,0 +1,35 @@
+div {
+  text-align: center;
+}
+
+.photo {
+  max-width: 100%;
+  -webkit-box-shadow: 0 0 20px 0px grey;
+  box-shadow: 0 0 20px 0px grey;
+  position: relative;
+  z-index: -1;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}
+
+.photo-wrapper {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  max-width: 100%;
+  display: inline-block;
+}
+
+.like {
+  margin-left: 15px;
+  margin-top: 10px;
+}
+
+.like:hover {
+  cursor: pointer;
+}
+
+.created-at {
+  margin-right: 15px;
+  margin-top: 10px;
+}
