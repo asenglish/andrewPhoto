@@ -2,13 +2,64 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Client</title>
+  <title>Andrew Photo</title>
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!-- <link rel="icon" type="image/x-icon" href="favicon.ico"> -->
 </head>
 <body>
-  <app-root></app-root>
+  <app-root>
+    <style>
+    .loading-div {
+      font-family: Arial;
+      font-size: 2.5em;
+      background: #f9f9f9;
+      color: #2B6B70;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .loading-text {
+      opacity: 100;
+      animation: fade-in 1s ease;
+    }
+    @keyframes fade-in {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 100;
+      }
+    }
+    @keyframes loading {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 100;
+      }
+    }
+    .s1 {
+      opacity: 0;
+      animation: loading .75s ease infinite alternate;
+      animation-delay: 0s;
+    }
+    .s2 {
+      opacity: 0;
+      animation: loading .75s ease infinite alternate;
+      animation-delay: .15s;
+    }
+    .s3 {
+      opacity: 0;
+      animation: loading .75s ease infinite alternate;
+      animation-delay: .3s;
+    }
+  </style>
+    <div class='loading-div'>
+    <span class='loading-text'>Loading</span><span class='s1'>.</span><span class='s2'>.</span><span class='s3'>.</span>
+  </div>
+  </app-root>
 </body>
 </html>

@@ -8,7 +8,7 @@ const routes: Routes = [
   {
     path: '',
     children: [
-      { path: 'photo-list', component: PhotoListComponent},
+      { path: 'photo-list', component: PhotoListComponent, data: { animation: 'routerAnimation' }},
       { path: 'about', component: AboutComponent},
       { path: '**', redirectTo: 'photo-list' }
     ]

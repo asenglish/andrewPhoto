@@ -55,4 +55,31 @@ body {
 .wrapper {
   width: 50%;
   margin: auto;
+  margin-top: 50px;
+}
+
+.article-wrapper {
+  width: 80%;
+  margin: auto;
+  margin-top: 125px;
+}
+
+.transparent {
+  opacity: 0;
+}
+
+.opaque {
+  opacity: 100;
+}
+
+h1 {
+  color: var(--medium);
+}
+
+p {
+  margin: 25px;
+}
+
+div {
+  transition: opacity .3s;
 }

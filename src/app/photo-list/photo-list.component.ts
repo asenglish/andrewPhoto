@@ -3,18 +3,22 @@ import { HttpService } from '../http.service';
 import { Photo } from './photo';
 import { Observable } from "rxjs";
 import { TimerObservable } from "rxjs/observable/TimerObservable";
+import { fadeInAnimation } from '../_animations/fade-in.animation'
 
 @Component({
   selector: 'photo-list',
   templateUrl: './photo-list.component.html',
-  styleUrls: ['./photo-list.component.css']
+  styleUrls: ['./photo-list.component.css'],
+  animations: [fadeInAnimation]
 })
 export class PhotoListComponent implements OnInit {
   public photos: Photo[];
+  public isLoading = true;
 
   constructor(private httpService: HttpService) { }
 
   ngOnInit() {
+    this.isLoading = true;
     this.photos = []
     this.httpService.get('/photos/all')
       .subscribe(result => {
@@ -31,11 +35,15 @@ export class PhotoListComponent implements OnInit {
       });
   }
 
-  public likePhoto(id: string): void {
+  public likePhoto(id: string, event): void {
     this.httpService.put('/photos/like/' + id)
       .then(result => {
-        //on success event?
+        event.target.classList.add('liked');
     });
+  }
+
+  public getTransparency(): string {
+    return this.isLoading ? 'transparent' : 'opaque';
   }
 
   private instantiatePhotos(jsonPhotos: any): void {
@@ -43,9 +51,9 @@ export class PhotoListComponent implements OnInit {
       const {id, url, created_at, likes, collection_name, name} = jsonPhoto;
       return new Photo(id, url, created_at, likes, collection_name, name);
     });
+    this.isLoading = false;
   }
 
-// TS does not support maps?
   private updateLikes(likes: any) {
     this.photos.forEach(photo => {
       photo.likes = likes.get(photo.id);

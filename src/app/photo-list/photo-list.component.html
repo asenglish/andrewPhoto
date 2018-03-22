@@ -1,9 +1,11 @@
 <div class='wrapper'>
-  <div *ngFor='let photo of photos' class='photo-wrapper'>
-    <p>{{photo.name}}</p>
-    <img class='photo' src="{{photo.url}}"/>
-    <br>
-    <div (click)='likePhoto(photo.id)' class='button like left inline'>Like ({{photo.likes}})</div>
-    <span class='created-at right'>Created: {{photo.created_at}}</span>
+  <div class='{{getTransparency()}}'>
+    <div *ngFor='let photo of photos' class='photo-wrapper'>
+      <p class='photo-title'>{{photo.name}}</p>
+      <img class='photo' src="{{photo.url}}"/>
+      <br>
+      <div (click)='likePhoto(photo.id, $event)' class='button like left inline'>Like ({{photo.likes}})</div>
+      <span class='created-at right'>Created: {{photo.created_at}}</span>
+    </div>
   </div>
 </div>

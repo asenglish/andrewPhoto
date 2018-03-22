@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './router/router.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HttpService } from './http.service';
 import { Http, Headers, RequestOptions } from '@angular/http';
@@ -21,6 +22,7 @@ import { AboutComponent } from './about/about.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpModule
   ],
