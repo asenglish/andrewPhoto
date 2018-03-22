@@ -25,10 +25,6 @@ div {
   margin-top: 10px;
 }
 
-.like:hover {
-  cursor: pointer;
-}
-
 .created-at {
   margin-right: 15px;
   margin-top: 10px;
